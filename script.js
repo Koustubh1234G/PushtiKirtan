@@ -49,7 +49,7 @@ function createKirtanCard(kirtan) {
     `;
 
 
-    kirtanCard.addEventListener('toggle', () => {
+    kirtanCard.addEventListener('click', () => {
         kirtanCard.classList.add('active');
 
         kirtanCard.innerHTML = `
