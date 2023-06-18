@@ -1,7 +1,7 @@
 window.addEventListener('DOMContentLoaded', () => {
     fetch('data.json')
         .then(response => response.json())
-        .then(data => displayRituCards(data.rituNames) && displayUtsavCards(data.utsavNames))
+        .then(data => displayRituCards(data.rituNames))
         .catch(error => console.error(error));
 });
 
@@ -49,12 +49,13 @@ function createKirtanCard(kirtan) {
     `;
 
 
-    kirtanCard.addEventListener('click', () => {
+    kirtanCard.addEventListener('toggle', () => {
         kirtanCard.classList.add('active');
 
         kirtanCard.innerHTML = `
       <h2>${kirtan.title}</h2>
       <p>${kirtan.content}</p>
+      <footer>${kirtan.raag}</footer>
     `;
     });
 
