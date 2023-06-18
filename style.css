@@ -56,9 +56,11 @@ nav ul li a {
 
 #dynamicImage {
     display: block;
+	border: solid red;
+	padding: 4px;
     margin-left: auto;
     margin-right: auto;
-    width: 80%;
+    width: 50%;
 }
 
 .checkbtn {
@@ -89,6 +91,14 @@ nav ul li a {
     .checkbtn {
         display: block;
     }
+	#dynamicImage {
+    display: block;
+	border: solid red;
+	padding: 4px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+	}
     ul {
         position: fixed;
         width: 100%;
