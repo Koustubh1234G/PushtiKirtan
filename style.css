@@ -1,0 +1,166 @@
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    /* margin: 0 0 0 0; */
+    background: url("assets/bg.jpg");
+    background-size: cover;
+    height: calc(100vh-80px);
+    cursor: url("assets/Lotus1.png"), auto;
+}
+
+nav {
+    background-color: orangered;
+    height: 80px;
+    width: 100%;
+}
+
+
+/* nav svg {
+    display: block;
+    size: 32px 32px;
+} */
+
+label.logo {
+    color: white;
+    font-size: 40px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+}
+
+nav ul {
+    float: right;
+    margin-right: 20px;
+}
+
+nav ul li {
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+}
+
+nav ul li a {
+    color: white;
+    font-size: 17px;
+    text-transform: uppercase;
+    padding: 7px 13px;
+    border-radius: 3px;
+}
+
+#dynamicImage {
+    display: block;
+    border: 4px solid red;
+    margin: auto;
+    padding: 3px;
+}
+
+.checkbtn {
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+
+#check {
+    display: none;
+}
+
+@media(max-width:952px) {
+    label.logo {
+        font-size: 20px;
+        padding-left: 50px;
+    }
+    nav ul li a {
+        font-size: 16px;
+    }
+}
+
+@media(max-width:858px) {
+    .checkbtn {
+        display: block;
+    }
+    ul {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #b53900fd;
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        transition: all .5s;
+    }
+    nav ul li {
+        display: block;
+        margin: 50px 0;
+        line-height: 30px;
+    }
+    nav ul li a {
+        font-size: 20px;
+    }
+    a.active,
+    a:hover {
+        background: none;
+        /* color: red; */
+    }
+    #check:checked~ul {
+        left: 0;
+    }
+}
+
+a.active,
+a:hover {
+    background: #ff8000;
+    transition: .5s;
+}
+
+.ritu-card {
+    font-size: 20px;
+    font-weight: bolder;
+    color: #ff8000;
+    background-color: #FFFFFF93;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    margin: 40px;
+    padding: 2% 5px;
+    border: 2px solid black;
+    border-radius: 50% 10% 50% 10%;
+    /* background-color: grey; */
+}
+
+.ritu-card img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.ritu-card p {
+    margin-top: 10px;
+}
+
+.kirtan-card {
+    /* display: none; */
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.kirtan-card.active {
+    display: block;
+    background-color: yellow;
+    text-align: center;
+    padding: 10%;
+}
