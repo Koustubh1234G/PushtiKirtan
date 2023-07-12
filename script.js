@@ -3,6 +3,31 @@ window.addEventListener('DOMContentLoaded', () => {
         .then(response => response.json())
         .then(data => displayRituCards(data.rituNames))
         .catch(error => console.error(error));
+    // Fetching darshan timings
+    fetch('darshan_timings.json')
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Unable to fetch JSON data.');
+            }
+        })
+        .then(data => {
+            const jsonData = data;
+
+            const tableBody = document.querySelector('#darshan-table tbody');
+            jsonData.darshan_timings.forEach(entry => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+          <td>${entry.darshan}</td>
+          <td>${entry.timing}</td>
+        `;
+                tableBody.appendChild(row);
+            });
+        })
+        .catch(error => {
+            console.error(error);
+        });
 });
 
 function displayRituCards(rituNames) {
@@ -50,13 +75,14 @@ function createKirtanCard(kirtan) {
 
 
     kirtanCard.addEventListener('click', () => {
+
         kirtanCard.classList.add('active');
 
         kirtanCard.innerHTML = `
-      <h2>${kirtan.title}</h2>
-      <p>${kirtan.content}</p>
-      <footer>${kirtan.raag}</footer>
-    `;
+        <h2>${kirtan.title}</h2>
+        <p>${kirtan.content}</p>
+        <footer>राग - ${kirtan.raag}</footer>
+        `;
     });
 
     return kirtanCard;
@@ -76,7 +102,6 @@ const rajbhog = "assets/Rajbhog.jpg";
 const uthapan = "assets/Uthapan.jpg";
 const arti = "assets/Aarti.jpg";
 const shayan = "assets/Shayan.jpg";
-// const darshanName = document.createElement('h3');
 // Determine the appropriate image source based on the current time
 let imageSource;
 if (currentHour >= 6 && currentHour < 7) {
@@ -96,44 +121,3 @@ if (currentHour >= 6 && currentHour < 7) {
 }
 // Set the image source dynamically
 imageElement.src = imageSource;
-
-
-
-// This will load menu bar automatically
-// but now it is not working
-// function menuBar() {
-//     const ul = document.querySelector('ul');
-
-//     fetch('data.json')
-//         .then(response => response.json())
-//         .then(data => listMenu(data))
-//         .catch(error => console.log(error));
-
-//     function listMenu(data) {
-//         data.forEach(element => {
-//             const li = document.createElement('li');
-//             ul.appendChild(li);
-//             li.innerText = element;
-//         });
-//     }
-// }
-
-// menuBar();
-
-
-// brings elements of different site to our site
-// const container = document.getElementById("externalElementContainer");
-// const url = "https://https://www.nathdwaratemple.org/DarshanTiming.com/"; // Replace with the URL of the source website
-
-// fetch(url)
-//     .then(response => response.text())
-//     .then(data => {
-//         const parser = new DOMParser();
-//         const doc = parser.parseFromString(data, "text/html");
-//         const externalElement = doc.getElementsByClassName("table"); // Replace "elementId" with the ID of the element you want to extract
-
-//         container.appendChild(externalElement);
-//     })
-//     .catch(error => {
-//         console.log("Error fetching external element:", error);
-//     });
