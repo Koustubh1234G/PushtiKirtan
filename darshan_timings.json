@@ -5,23 +5,27 @@
         },
         {
             "darshan": "श्रिंगार",
-            "timing": "7 AM"
+            "timing": "7:30 AM"
         },
         {
             "darshan": "ग्वाल",
-            "timing": "10 AM"
+            "timing": "-"
         },
         {
             "darshan": "राजभोग",
-            "timing": "12 - 4"
+            "timing": "11:15 am"
         },
         {
             "darshan": "उत्थपन",
-            "timing": "4 - 6"
+            "timing": "3:45 pm"
         },
         {
             "darshan": "आर्ति",
-            "timing": "-"
-        }
+            "timing": "5:45 pm"
+        },
+{"darshan": "शयन",
+"timing":"-"
+
+}
     ]
 }
